@@ -1,0 +1,39 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}{% block page_title %}Countries{% endblock %}{% endblock %}
+{% block content %}
+<div class="card p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <h4>Country List</h4>
+        <a href="{% url 'country_create' %}" class="btn btn-primary btn-sm">+ Add Country</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Flag</th>
+                <th>Currency</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for country in countries %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ country.country_name }}</td>
+                <td>
+                    {% if country.country_flag %}
+                        <img src="{{ country.country_flag }}" width="30" height="20">
+                    {% else %}-{% endif %}
+                </td>
+                <td>{{ country.country_currency }}</td>
+                <td>
+                    <a href="{% url 'country_update' country.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'country_delete' country.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

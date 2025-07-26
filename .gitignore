@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+static/
+local_settings.py
+
+# Pytest
+.pytest_cache/
+.cache/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# MacOS
+.DS_Store
+
+# Coverage
+htmlcov/
+.coverage
+.tox/
+
+# Migrations (opsional, kalau tidak mau include saat awal)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# MySQL socket file (jika ada dump atau output sementara)
+*.sql
+
+# Node.js (jika pakai Tailwind atau frontend)
+node_modules/
+npm-debug.log
+dist/
+build/
+
+# Docker
+*.pid
+*.pid.lock
+docker-compose.override.yml
+
+# Gunicorn / uWSGI
+*.pid
+*.sock

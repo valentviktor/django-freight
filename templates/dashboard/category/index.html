@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}{% block page_title %}Categories{% endblock %}{% endblock %}
+{% block content %}
+<div class="card p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <h4>Category List</h4>
+        <a href="{% url 'category_create' %}" class="btn btn-primary btn-sm">+ Add Category</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Country</th>
+                <th>Title</th>
+                <th>Price per Kg</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ category.country.country_name }}</td>
+                <td>{{ category.category_title }}</td>
+                <td>{{ category.price_per_kilo }}</td>
+                <td>
+                    <a href="{% url 'category_update' category.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{% url 'category_delete' category.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
